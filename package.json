@@ -1,0 +1,24 @@
+{
+  "name": "mini1-todolist",
+  "version": "1.0.0",
+  "description": "A time tracking management system",
+  "main": "main.js",
+  "author": "Daniel Falabella",
+  "dependencies": {
+    "react": "^0.12.2",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.13.2",
+    "cors": "^2.7.1",
+    "express": "^4.13.1",
+    "express-session": "^1.11.3",
+    "mandrill-api": "^1.0.45",
+    "mongoose": "^4.0.8",
+    "passport": "^0.2.2",
+    "passport-local": "^1.0.0",
+    "session": "^0.1.0"
+  },
+  "devDependencies": {
+    "jsx-loader": "^0.12.2",
+    "webpack": "^1.5.3"
+  }
+}

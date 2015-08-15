@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>React Bootstrap Todo List</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+<body>
+  <style type="text/css">
+   
+    html, body {
+  		height: 100%;
+  		background-color: #eee;
+  	}
+
+  	* {
+  		 font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+        font-weight: 300;
+  	}
+
+    #app {
+      height: 100%;
+      background: url("/styles/images/background.png") 50% 50% no-repeat scroll;
+      background-size: cover;
+    }
+
+    #app > div {
+      height: 100%;
+    }
+    
+    .container {
+      height: calc(100% - 65px);
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .flex-middle {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    form {
+      display: flex;
+    }
+    ::-webkit-input-placeholder {
+       color: #ddd;
+       padding: 0;
+       line-height: 40px;
+    }
+    :-moz-placeholder { /* Firefox 18- */
+       color: #ddd;
+       padding: 0;
+       line-height: 40px;
+    }
+    ::-moz-placeholder {  /* Firefox 19+ */
+       color: #ddd;
+       padding: 0;
+       line-height: 40px;
+    }
+    :-ms-input-placeholder {  
+       color: #ddd;
+       padding: 0;
+       line-height: 40px;
+    }
+
+    .main-focus {
+      color: #fff;
+      min-width: 600px;
+      border: none;
+      border-bottom: 1px solid #7C7676;
+      background-color: transparent;
+      text-align: left;
+      font-size: 30px;
+      line-height: 40px;
+      height: 60px;
+      padding: 10px 20px 0 20px;
+    }
+
+    .main-focus:focus {
+      color: #fff;
+      outline: none;
+      border-bottom: 1px solid #1481e3;
+    }
+
+    .btn-clock {
+      height: 50px;
+      border: none;
+      border-radius: 0;
+      font-size: 16px;
+      width: 150px;
+      margin-top: 10px;
+      border-bottom: 5px solid #D2D2D2;
+      border-radius: 4px;
+      margin-left: 20px;
+    }
+
+    .btn-clock:focus {
+      outline: none;
+    }
+
+    .btn-clock:active {
+      outline: none;
+      background-color: #e6e6e6;
+      box-shadow: none;
+      border: none;
+      border-bottom: 3px solid #adadad;
+    }
+
+  </style>
+
+
+  <div id="app"></div>
+  <script src="bundle.js"></script>
+</body>
+</html>
