@@ -1,9 +1,31 @@
 import React from 'react'
 
-var FocusInput = React.createClass({
+
+let GoButton = React.createClass({
+	setTimer: function (e) {
+		// console.log(e);
+		let inputContent = $('.main-focus')[0].value;
+		console.log(inputContent);
+
+		if (!inputContent) return;
+		// TODO: Ajax request to initiate counter on backend here
+	},
+
+	render: function () {
+		return (
+			<button className="btn btn-default btn-clock"
+							onClick={this.setTimer}>
+				Start clock
+ 	 		</button>
+		)
+	}
+})
+
+let FocusInput = React.createClass({
 	componentDidMount: function () {
 		$('.main-focus').focus();
 	},
+
 	render: function () {
 		var styles = {
 			makeBlur: {
@@ -18,12 +40,9 @@ var FocusInput = React.createClass({
 		};
 		return (
 			<div style={styles.makeBlur} className="flex-middle">
-				<form>
-					<input placeholder={this.props.value}
-						   	 	className="main-focus" />
-		   	 	<button className="btn btn-default btn-clock">Start clock
-	   	 		</button>
-				</form>
+				<input placeholder={this.props.value}
+					   	 	className="main-focus" />
+   	 		<GoButton />
 			</div>
 		)
 	}
