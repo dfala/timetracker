@@ -1,6 +1,6 @@
-var React = require('react');
+import React from 'react'
 
-var Header = React.createClass({
+let Header = React.createClass({
   render: function(){
     var styles = {
       header: {

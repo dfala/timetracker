@@ -1,10 +1,9 @@
-var React = require('react');
-var Header = require('./Header');
-var FocusInput = require('./FocusInput');
+import React from 'react'
+import Header from './Header'
+import FocusInput from './FocusInput'
 
-var ListContainer = require('./ListContainer');
 
-var App = React.createClass({
+let App = React.createClass({
   render: function(){
     var styles = {
       alignMiddle: {

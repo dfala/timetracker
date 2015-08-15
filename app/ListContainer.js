@@ -1,8 +1,8 @@
-var React = require('react');
-var AddItem = require('./AddItem');
-var List = require('./List');
+import React from 'react'
+import AddItem from './AddItem'
+import List from './List'
 
-var ListContainer = React.createClass({
+let ListContainer = React.createClass({
   getInitialState: function(){
     return {
       list: []
@@ -14,7 +14,7 @@ var ListContainer = React.createClass({
     });
   },
   handleRemoveItem: function(index){
-    var newList = this.state.list;
+    let newList = this.state.list;
     newList.splice(index, 1);
     this.setState({
       list: newList
