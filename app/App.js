@@ -14,7 +14,7 @@ let App = React.createClass({
       <div>
         <Header />
         <div className="container">
-          <div className="row" style={styles.alignMiddle}>
+          <div className="row" id="main-row" style={styles.alignMiddle}>
             <FocusInput value="What's your focus today?"/>
           </div>
         </div>

@@ -18,8 +18,14 @@ app.use(express.static(__dirname + '/public'));
 
 // Middleware
 app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
+
+// Controllers
+var timeController = require('./controllers/timeController.js');
+
+// API ENDPOINTS
+app.post('/api/start-timer', timeController.startTimer);
 
 
 // Connections

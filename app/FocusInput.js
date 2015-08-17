@@ -1,29 +1,44 @@
 import React from 'react'
 
-
-let GoButton = React.createClass({
-	setTimer: function (e) {
-		// console.log(e);
-		let inputContent = $('.main-focus')[0].value;
-		console.log(inputContent);
-
-		if (!inputContent) return;
-		// TODO: Ajax request to initiate counter on backend here
+let FocusInput = React.createClass({
+	getInitialState: function () {
+		return {
+			displayStatus: true
+		}
 	},
 
-	render: function () {
-		return (
-			<button className="btn btn-default btn-clock"
-							onClick={this.setTimer}>
-				Start clock
- 	 		</button>
-		)
-	}
-})
-
-let FocusInput = React.createClass({
 	componentDidMount: function () {
 		$('.main-focus').focus();
+	},
+
+	startTimer: function () {
+		let workType = $('.main-focus')[0].value;
+		let data = {
+			workType: workType,
+			startDate: new Date()
+		};
+
+		let inputField = this;
+
+		// Create new log instance
+		$.ajax({
+			url: '/api/start-timer',
+			type: 'POST',
+			data: data,
+			dataType: 'json'
+		}).done(function (response) {
+			console.info(response);
+			// Hide inputfield
+			inputField.setState({
+				displayStatus: false
+			})
+			// Display timer 
+
+		}).fail(function (err) {
+			console.error(err);
+			alert("An error ocurred");
+		})
+
 	},
 
 	render: function () {
@@ -40,9 +55,21 @@ let FocusInput = React.createClass({
 		};
 		return (
 			<div style={styles.makeBlur} className="flex-middle">
-				<input placeholder={this.props.value}
-					   	 	className="main-focus" />
-   	 		<GoButton />
+				{ 
+					this.state.displayStatus ?
+					<span>
+						<input placeholder={this.props.value}
+						   	 	className="main-focus" />
+			   	 	<button className="btn btn-default btn-clock"
+									onClick={this.startTimer}>
+							Start clock
+			 	 		</button>
+					</span>
+					:
+					<span>
+						<h1>Time</h1>
+					</span>
+				}
 			</div>
 		)
 	}
