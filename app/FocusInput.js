@@ -1,18 +1,22 @@
 import React from 'react'
+import axios from 'axios'
 
-let FocusInput = React.createClass({
-	getInitialState: function () {
+const FocusInput = React.createClass({
+	// TODO: look up object literal short hand (ES6)
+	getInitialState () {
 		return {
-			displayStatus: true
+			displayStatus: true,
+			counter: null
 		}
 	},
 
-	componentDidMount: function () {
+	componentDidMount () {
 		$('.main-focus').focus();
 	},
 
-	startTimer: function () {
+	startTimer () {
 		let workType = $('.main-focus')[0].value;
+
 		let data = {
 			workType: workType,
 			startDate: new Date()
@@ -20,28 +24,27 @@ let FocusInput = React.createClass({
 
 		let inputField = this;
 
-		// Create new log instance
-		$.ajax({
-			url: '/api/start-timer',
-			type: 'POST',
-			data: data,
-			dataType: 'json'
-		}).done(function (response) {
-			console.info(response);
-			// Hide inputfield
+		axios.post('/api/start-timer', data)
+		.then(function (response) {
 			inputField.setState({
-				displayStatus: false
+				displayStatus: false,
+				counter: 0
 			})
-			// Display timer 
+			setInterval(function () {
+				let newTime = inputField.state.counter;
+				newTime++;
 
-		}).fail(function (err) {
-			console.error(err);
-			alert("An error ocurred");
+				inputField.setState({
+					counter: newTime
+				})
+			}, 1000)
 		})
-
+		.catch(function (err) {
+			console.error(err);
+		})
 	},
 
-	render: function () {
+	render () {
 		var styles = {
 			makeBlur: {
 				position: 'fixed',
@@ -51,6 +54,9 @@ let FocusInput = React.createClass({
 				width: '100%',
 		    zIndex: '10',
 				backgroundColor: 'rgba(76, 76, 76, 0.46)'
+			},
+			mainTitle: {
+				color: '#fff'
 			}
 		};
 		return (
@@ -67,7 +73,7 @@ let FocusInput = React.createClass({
 					</span>
 					:
 					<span>
-						<h1>Time</h1>
+						<h1 style={styles.mainTitle}>{this.state.counter}</h1>
 					</span>
 				}
 			</div>
