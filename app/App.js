@@ -3,8 +3,8 @@ import Header from './Header'
 import FocusInput from './FocusInput'
 
 
-let App = React.createClass({
-  render: function(){
+const App = React.createClass({
+  render () {
     var styles = {
       alignMiddle: {
         textAlign: 'center'
