@@ -4,10 +4,11 @@ let Header = React.createClass({
   render: function(){
     var styles = {
       header: {
-        backgroundColor: '#262626',
+        backgroundColor: '#fff',
+        boxShadow: '0px 0px 10px -3px #000',
         width: '100%',
         height: '65px',
-        color: '#fff',
+        color: '#393939',
         position: 'fixed',
         top: '0',
         left: '0',

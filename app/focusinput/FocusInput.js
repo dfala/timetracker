@@ -16,17 +16,6 @@ let SetIntervalMixin = {
 	}
 }
 
-	// setInterval(function () {
-	// 	let newTime = inputField.state.counter;
-	// 	newTime++;
-
-	// 	inputField.setState({
-	// 		counter: newTime
-	// 	})
-	// }, 1000);
-
-
-
 ////////////////////////////////////////
 ////////////////////////////////////////
 
@@ -48,12 +37,13 @@ const FocusInput = React.createClass({
 
 
 	startTimer () {
-		let workType = $('#main-focus')[0].value;
+		let workType = document.getElementById('main-focus').value;
 		let startDate = new Date();
 
 		let data = {
 			workType,
-			startDate
+			startDate,
+			username: this.props.userInfo.username
 		};
 
 		let inputField = this;
@@ -98,6 +88,8 @@ const FocusInput = React.createClass({
 			timeEnd: this.state.counter
 		}
 
+		var user = this.props.user;
+
 		var uri = '/api/stop-timer/' + this.props.logId;
 		axios.post(uri, data)
 		.then(function (response) {
@@ -133,17 +125,17 @@ const FocusInput = React.createClass({
 			}
 		};
 		return (
-			<div style={styles.makeBlurry} className="flex-middle">
+			<div>
 				{ 
 					this.state.displayStatus ?
-					<span>
+					<div className="lc">
 						<input placeholder={this.props.value}
 						   	 	id="main-focus" />
 			   	 	<button className="btn btn-default btn-clock"
 			   	 					onClick={this.startTimer}>
 							Start clock
 			 	 		</button>
-					</span>
+					</div>
 					:
 					<span>
 						<div style={styles.activeLog}>{this.props.logContent}</div> <br/>

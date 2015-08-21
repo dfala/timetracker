@@ -1,0 +1,127 @@
+html, body {
+  /*height: 100%;*/
+  background-color: #eee;
+  background-color: #71FF8B;
+}
+
+* {
+   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 300;
+}
+
+#app {
+  min-height: 100%;
+  /*background: url("/styles/images/background.png") 50% 50% no-repeat scroll;*/
+  background-size: cover;
+}
+
+.container {
+  width: 880px;
+  margin-top: 100px;
+}
+
+::-webkit-input-placeholder {
+   color: #ddd;
+   padding: 0;
+   line-height: 40px;
+}
+:-moz-placeholder { /* Firefox 18- */
+   color: #ddd;
+   padding: 0;
+   line-height: 40px;
+}
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #ddd;
+   padding: 0;
+   line-height: 40px;
+}
+:-ms-input-placeholder {  
+   color: #ddd;
+   padding: 0;
+   line-height: 40px;
+}
+
+#main-focus, .focus-box {
+  min-width: 600px;
+  border: none;
+  border-bottom: 1px solid #7C7676;
+  background-color: transparent;
+  text-align: left;
+  font-size: 30px;
+  line-height: 40px;
+  height: 60px;
+  padding: 10px 20px 0 20px;
+  margin-right: 20px;
+}
+
+#main-focus:focus, .focus-box:focus {
+  outline: none;
+  border-bottom: 1px solid #1481e3;
+}
+
+.btn:active:focus, .btn:focus {
+  outline: none;
+}
+
+.btn-clock {
+  height: 50px;
+  border: none;
+  border-radius: 0;
+  font-size: 16px;
+  width: 150px;
+  margin-top: 10px;
+  border-bottom: 5px solid #D2D2D2;
+  border-radius: 4px;
+}
+
+.btn-clock:focus {
+  outline: none;
+}
+
+.btn-clock:active {
+  outline: none;
+  background-color: #e6e6e6;
+  box-shadow: none;
+  border: none;
+  /*border-bottom: 3px solid #adadad;*/
+  border-bottom: none;
+  border-top: 2px solid #adadad;
+}
+
+.lc {
+  background-color: #FFF;
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px -3px #000;
+}
+
+  .lc .focus-box{
+    color: #000;
+  }
+
+  .lc .btn-clock {
+    background-color: #E1E1E1;
+    border-bottom: 5px solid #BEBEBE;
+  }
+
+  .lc .btn-clock:active {
+    background-color: #C9C7C7;
+    border-bottom: none;
+  }
+
+.align-middle {
+  text-align: center;
+}
+
+.extra-top {
+  margin: 40px 0 60px 0;
+  text-align: left;
+}
+
+  .extra-top h4 {
+    font-size: 20px;
+  }
+  
+  .extra-top p {
+    font-size: 16px;
+  }

@@ -23,10 +23,12 @@ app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 
 // Controllers
 var timeController = require('./controllers/timeController.js');
+var userController = require('./controllers/userController.js');
 
 // API ENDPOINTS
 app.post('/api/start-timer', timeController.startTimer);
 app.post('/api/stop-timer/:logId', timeController.stopTimer);
+app.get('/api/get-user/:username', userController.getUser);
 
 
 // Connections

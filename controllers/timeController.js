@@ -12,8 +12,6 @@ exports.startTimer = function (req, res) {
 
 
 exports.stopTimer = function (req, res) {
-  console.log(req.body);
-
   TimeLog.findById(req.params.logId, function (err, result) {
     if (err) return res.status(500).send(err);
 
